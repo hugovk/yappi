@@ -4,15 +4,7 @@
 #include "Python.h"
 #include "pythread.h"
 
-#if PY_MAJOR_VERSION >= 3 && PY_MINOR_VERSION >= 7
-    #define USE_NEW_TSS_API
-#endif
-
-#ifdef USE_NEW_TSS_API
-    #define YPY_KEY_TYPE Py_tss_t*
-#else
-    #define YPY_KEY_TYPE int
-#endif
+#define YPY_KEY_TYPE Py_tss_t*
 
 typedef struct {
     YPY_KEY_TYPE _key;

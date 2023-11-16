@@ -21,10 +21,8 @@ if __name__ == '__main__':
         'test_tags',
         'test_gevent',
         'test_asyncio',
+        'test_asyncio_context_vars',
     ]
-    # TODO: make these auto-skip if cannot be imported
-    if sys.version_info >= (3, 7):
-        tests += ['test_asyncio_context_vars']
     test_suite = test_loader.loadTestsFromNames(tests)
 
     if len(sys.argv) > 1:
