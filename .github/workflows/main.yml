@@ -10,14 +10,10 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: [2.7, 3.7, 3.8, 3.9, "3.10", 3.11.0]
-        exclude:
-          - os: windows-latest
-            python-version: 2.7 # error: Microsoft Visual C++ 9.0 is required
-          # - os: macos-latest
-          #   python-version: 3.9 # TODO: getting Illegal instruction somehow
+        python-version: [3.7, 3.8, 3.9, "3.10", 3.11.0]
 
     steps:
     - uses: actions/checkout@v4
